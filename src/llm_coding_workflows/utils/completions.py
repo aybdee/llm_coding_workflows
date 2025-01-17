@@ -46,6 +46,8 @@ def create_json_completion(host, prompt, gbnf_grammar):
 
     headers = {"Content-Type": "application/json"}
     data = {"prompt": prompt, "grammar": gbnf_grammar}
+
+    print(f"  Request:\n Prompt:\n{textwrap.indent(prompt.rstrip(), '      ')}")
     result = requests.post(
         f"http://{host}/completion", headers=headers, json=data
     ).json()

@@ -40,7 +40,7 @@ def review_program(host: str, program: Program, history: List):
     gbnf_grammar, documentation = generate_gbnf_grammar_and_documentation(
         pydantic_model_list=tools
     )
-    system_message = "You are an advanced AI, that is very good at reviewing programming problems look at the solution carefully and document your thought process on how good the solution is and potential provements as the chain of thought, after thinking, write a list of recommendations to improve the solution and give the solution a score between 0 and 1"
+    system_message = "You are an advanced AI, that is very good at reviewing programming problems look at the solution carefully and document your thought process on how good the solution is and potential provements as the chain of thought, after thinking, write a list of recommendations to improve the solution and give the solution a score between 0 and 10"
     prompt = create_prompt_with_history(
         system_message, program_prompt(program), history, "review"
     )
@@ -102,6 +102,3 @@ Output:
     Return an integer representing the total number of rabbit pairs after n months.
 """
 history, program = solve_problem(host, problem)
-# print(f"{program.program}\n")
-# print(f"{program.chain_of_thought}\n")
-# pprint(history)
